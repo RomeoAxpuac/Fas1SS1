@@ -1,0 +1,6 @@
+FROM node
+WORKDIR /api_Fase1
+ADD . /api_Fase1
+RUN npm install
+CMD ["npm","start"]
+
