@@ -12,6 +12,73 @@ WILSON GUERRA 201314571
 # FASE 1
 Se establece un sistema de E-Commerce, el sistema esta montado en la nube.  La palabra ecommerce es una abreviatura de comercio electrónico que, básicamente, designa el comercio que se realiza online. Este tipo de negocio ha ganado fuerza en los últimos años, cuando los consumidores se dieron cuenta de que Internet es un entorno seguro para la compra. Nuestro sistema cuenta con un servidor web el cual nos permite visualizar los productos de una empresa y así mismo ingresar nuevos productos al sistema toda esta información es almacenada en una base de datos. Esta aplicación se llevo a cabo gracias a las herramientas de AWS y el uso de contedores en Docker. 
 
+# API
+las API son un conjunto de comandos, funciones y protocolos informáticos que permiten a los desarrolladores crear programas específicos para ciertos sistemas operativos. Las API simplifican en gran medida el trabajo de un creador de programas, ya que no tiene que «escribir» códigos desde cero. Estas permiten al informático usar funciones predefinidas para interactuar con el sistema operativo o con otro programa. A continuación se muestra el codigo utilizado para la realización de las apis de nuestro sistema:
+
+            const express = require('express');
+            const app = express();
+
+            const mysql = require('mysql');
+
+            const con = mysql.createConnection({
+                    host:'172.17.0.2',
+                    port:'3306',
+                    user:'root',
+                    password:'123456789',
+                    database:'PROYECTOSEMINARIO1'
+            });
+
+            var bodyParser = require('body-parser');
+            app.use(bodyParser.json()); // support json encoded bodies
+            app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
+            con.connect(function(err) {
+                if (err) throw err;
+                    console.log(err);
+            });
+
+            app.get('/producto', function (req, res) {
+            var productos = [];
+            //con.connect(function(err) {
+                    con.query("SELECT * FROM PRODUCTO", function (err, result, fields) {
+                    for(var i = 0;i< result.length;i++){
+                            productos.push({'id':result[i].id,'nombre':result[i].nombre,'cantidad':result[i].cantidad,'precio':result[i].precio});
+                    }
+                    if (err) throw err;
+                    res.json(productos);
+            });
+            //});
+
+              //res.json("{error:'Hubo un error'}");
+            })
+            app.post('/producto', function (req, res) {
+                    var nombre_producto = req.body.nombre;
+                        var precio_producto = req.body.precio;
+                    var cantidad_producto = req.body.cantidad;
+                    //console.log(nombre_producto + ' - ' + cantidad_producto + ' - ' + precio_producto)
+                    var sql = "INSERT INTO PRODUCTO(nombre,cantidad,precio) VALUES('"+ nombre_producto+"',"+cantidad_producto+","+precio_producto+")"; 
+                    con.query(sql, function (err, result) {
+                if (err) throw err;
+                res.send("1 record inserted");
+            });
+
+            });
+            app.get('/suma', function (req, res) {
+              var total = 5+7
+              j = {'valor':total}
+              res.json(j)
+            })
+
+            app.listen(3000,()=>{
+                    console.log('Servidor API iniciado!!!!');
+
+            });
+
+
+
+
+
+
 # DOCKER FILES
 Un Dockerfile es un archivo de texto plano que contiene las instrucciones necesarias para automatizar la creación de una imagen que será utilizada posteriormente para la ejecución de instancias específicas. Para la realización de nuestro proyecto realizamos tres docker files a continuación la estrucutra de los mismos.
 
