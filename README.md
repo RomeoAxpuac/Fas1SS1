@@ -28,12 +28,18 @@ Un Dockerfile es un archivo de texto plano que contiene las instrucciones necesa
 
 
 2) DockerFile para la creación de una imagen para la elaboración de una api con Node.
+                 
+            
             FROM node
             WORKDIR /api_Fase1
             ADD . /api_Fase1
             RUN npm install
             CMD ["npm","start"]
+            
+            
 3) DockerFile para la creación de una imagen para la elaboración de un servidor web. 
+
+
             FROM ubuntu
             MAINTAINER cloudingtutos <soporte@clouding.io>
             ENV HOME /root
