@@ -12,8 +12,8 @@ WILSON GUERRA 201314571
 # FASE 1
 Se establece un sistema de E-Commerce, el sistema esta montado en la nube.  La palabra ecommerce es una abreviatura de comercio electrónico que, básicamente, designa el comercio que se realiza online. Este tipo de negocio ha ganado fuerza en los últimos años, cuando los consumidores se dieron cuenta de que Internet es un entorno seguro para la compra. Nuestro sistema cuenta con un servidor web el cual nos permite visualizar los productos de una empresa y así mismo ingresar nuevos productos al sistema toda esta información es almacenada en una base de datos. Esta aplicación se llevo a cabo gracias a las herramientas de AWS y el uso de contedores en Docker. 
 
-# API
-las API son un conjunto de comandos, funciones y protocolos informáticos que permiten a los desarrolladores crear programas específicos para ciertos sistemas operativos. Las API simplifican en gran medida el trabajo de un creador de programas, ya que no tiene que «escribir» códigos desde cero. Estas permiten al informático usar funciones predefinidas para interactuar con el sistema operativo o con otro programa. A continuación se muestra el codigo utilizado para la realización de las apis de nuestro sistema:
+# Tecnologia Utilizada No.1 API
+Las API son un conjunto de comandos, funciones y protocolos informáticos que permiten a los desarrolladores crear programas específicos para ciertos sistemas operativos. Las API simplifican en gran medida el trabajo de un creador de programas, ya que no tiene que «escribir» códigos desde cero. Estas permiten al informático usar funciones predefinidas para interactuar con el sistema operativo o con otro programa. A continuación se muestra el codigo utilizado para la realización de las apis de nuestro sistema:
 
             const express = require('express');
             const app = express();
@@ -75,7 +75,20 @@ las API son un conjunto de comandos, funciones y protocolos informáticos que pe
             });
 
 
+# Tecnologia Utilizada No.2 BD en MySQL
 
+Una base de datos es un conjunto de datos pertenecientes a un mismo contexto y almacenados sistemáticamente para su posterior uso. En este sentido; una biblioteca puede considerarse una base de datos compuesta en su mayoría por documentos y textos impresos en papel e indexados para su consulta. MySQL es un sistema de gestión de bases de datos relacional desarrollado bajo licencia dual: Licencia pública general/Licencia comercial por Oracle Corporation y está considerada como la base datos de código abierto más popular del mundo. Para nuestro sistema se utilizó unicamente una tabla para el almacenamiento de los productos a continuación el codigo SQL utlizado.
+
+
+            CREATE TABLE PRODUCTO(
+                 id MEDIUMINT NOT NULL AUTO_INCREMENT,
+                 nombre CHAR(30) NOT NULL,
+                 precio INT NOT NULL,
+                 cantidad INT NOT NULL,
+                 PRIMARY KEY (id)
+            );
+
+# Tecnologia Utilizada No.3 APCHE Y PHP API
 
 
 
