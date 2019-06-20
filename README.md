@@ -88,8 +88,8 @@ Una base de datos es un conjunto de datos pertenecientes a un mismo contexto y a
                  PRIMARY KEY (id)
             );
 
-# Tecnologia Utilizada No.3 APCHE Y PHP API
-
+# Tecnologia Utilizada No.3 APACHE Y PHP
+Apache es un software de servidor web gratuito y de código abierto con el cual se ejecutan el 46% de los sitios web de todo el mundo. El nombre oficial es Apache HTTP Server, y es mantenido y desarrollado por la Apache Software Foundation. Le permite a los propietarios de sitios web servir contenido en la web, de ahí el nombre de “servidor web”. Es uno de los servidores web más antiguos y confiables, con la primera versión lanzada hace más de 20 años, en 1995. Cuando alguien quiere visitar un sitio web, ingresa un nombre de dominio en la barra de direcciones de su navegador. Luego, el servidor web envía los archivos solicitados actuando como un repartidor virtual.PHP, acrónimo recursivo en inglés de PHP: Hypertext Preprocessor (preprocesador de hipertexto), es un lenguaje de programación de propósito general de código del lado del servidor originalmente diseñado para el desarrollo web de contenido dinámico.
 
 
 # DOCKER FILES
