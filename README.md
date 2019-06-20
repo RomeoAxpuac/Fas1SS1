@@ -13,8 +13,34 @@ WILSON GUERRA 201314571
 Se establece un sistema de E-Commerce, el sistema esta montado en la nube.  La palabra ecommerce es una abreviatura de comercio electrónico que, básicamente, designa el comercio que se realiza online. Este tipo de negocio ha ganado fuerza en los últimos años, cuando los consumidores se dieron cuenta de que Internet es un entorno seguro para la compra. Nuestro sistema cuenta con un servidor web el cual nos permite visualizar los productos de una empresa y así mismo ingresar nuevos productos al sistema toda esta información es almacenada en una base de datos. Esta aplicación se llevo a cabo gracias a las herramientas de AWS y el uso de contedores en Docker. 
 
 # DOCKER FILES
+Un Dockerfile es un archivo de texto plano que contiene las instrucciones necesarias para automatizar la creación de una imagen que será utilizada posteriormente para la ejecución de instancias específicas. Para la realización de nuestro proyecto realizamos tres docker files a continuación la estrucutra de los mismos.
+
+1) DockerFile para la creación de una imagen para la elaboración de una Base de Datos.
+
+            # Derived from official mysql image (our base image)
+            FROM mysql:5.7
+            # Add a database
+            ENV MYSQL_DATABASE PROYECTOSEMINARIO1
+            # Add the content of the sql-scripts/ directory to your image
+            # All scripts in docker-entrypoint-initdb.d/ are automatically
+            # executed during container startup
+            COPY ~/BasesDeDatos/sql-scripts /docker-entrypoint-initdb.d/
 
 
+2) DockerFile para la creación de una imagen para la elaboración de una api con Node.
+            FROM node
+            WORKDIR /api_Fase1
+            ADD . /api_Fase1
+            RUN npm install
+            CMD ["npm","start"]
+3) DockerFile para la creación de una imagen para la elaboración de un servidor web. 
+            FROM ubuntu
+            MAINTAINER cloudingtutos <soporte@clouding.io>
+            ENV HOME /root
+            RUN apt-get update
+            RUN apt-get install -y apache2 wget
+            EXPOSE 80
+            CMD service apache2 start
 
 # CREACIÓN DE IMAGENES EN DOCKER
 
