@@ -150,3 +150,5 @@ https://cloud.docker.com/repository/docker/romeo123axpuac/fase1
 # ERRORES
 
 Uno de los errores que se encuentro al momento de desarrolar la api de la aplicación, es que el modulo de node para mysql solo soporta una conexion simultanea, por lo que para la primera consulta funciona bien, pero si se quiere hacer otra, entoces lanza una excepcion, para resolverlo se debe abrir la conexion solo una vez, y reutilizarla en toda la api, sin cerrarla en ningun momento.
+
+Otro error pequeño encontrado es la utilización de versiones de las herramientas, que muchas veces no son compatibles, por lo cual se debe buscar versiones que se puedan adaptar a la funcionalidad del sistema. 
